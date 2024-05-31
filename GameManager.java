@@ -15,7 +15,7 @@ public class GameManager {
     HashSet<OneClientModul> ocmSet = new HashSet<>();
 
     GameManager(LiarServer ls) {
-        System.out.println("°×¸Ş µé¾î¿È");
+        System.out.println("ê²œë©” ë“¤ì–´ì˜´");
         this.ls = ls;
         for (OneClientModul ocm : ls.v) {
             playerList.add(ocm.chatId);
@@ -36,16 +36,16 @@ public class GameManager {
     }
 
     void lockChat() {
-        gm("Ã¤ÆÃ¶ô");
+        gm("ì±„íŒ…ë½");
     }
 
     void unlockAll() {
-        gm("¿Ã¾ğ¶ô");
+        gm("ì˜¬ì–¸ë½");
     }
 
     void oneChat() {
-        ls.ocm.broadcast("Ã¤ÆÃÀÌ Àá±é´Ï´Ù.");
-        ls.ocm.broadcast("10ÃÊ ÈÄ ¼ø¼­´ë·Î ÁÖÁ¦¸¦ ÇÑ¸¶µğ·Î ¼³¸íÇÏ¼¼¿ä.");
+        ls.ocm.broadcast("ì±„íŒ…ì´ ì ê¹ë‹ˆë‹¤.");
+        ls.ocm.broadcast("10ì´ˆ í›„ ìˆœì„œëŒ€ë¡œ ì£¼ì œë¥¼ í•œë§ˆë””ë¡œ ì„¤ëª…í•˜ì„¸ìš”.");
         lockChat();
         ls.sleepTh(10);
         ArrayList<Integer> idx = new ArrayList<>();
@@ -62,21 +62,21 @@ public class GameManager {
                 }
             }
         }
-            System.out.println(idx);
+        System.out.println(idx);
         for (int i = 0; i < ls.v.size(); i++) {
-            ls.ocm.broadcast(ls.v.get(idx.get(i)).chatId+"´ÔÀÌ ÀÔ·ÂÁßÀÔ´Ï´Ù.");
-            gm("Ã¤ÆÃ¾ğ¶ô" + ls.v.get(idx.get(i)).chatId);
+            ls.ocm.broadcast(ls.v.get(idx.get(i)).chatId+"ë‹˜ì´ ì…ë ¥ì¤‘ì…ë‹ˆë‹¤.");
+            gm("ì±„íŒ…ì–¸ë½" + ls.v.get(idx.get(i)).chatId);
             ls.sleepTh(10);
         }
     }
 
     public void setTopic() {
 
-        File topicListFile = new File("ÁÖÁ¦.txt");
+        File topicListFile = new File("ì£¼ì œ.txt");
         try {
             sc = new Scanner(topicListFile);
         } catch (FileNotFoundException e) {
-            System.out.println("ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+            System.out.println("íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         }
 
         topicList = new ArrayList<>();
@@ -105,7 +105,7 @@ public class GameManager {
         }
         gm("vote");
         ls.sleepTh(20);
-        System.out.println("¾²·¹µå±ş");
+        System.out.println("ì“°ë ˆë“œê¹¸");
     }
 
     void liarSelect() { //fffff
@@ -124,33 +124,33 @@ public class GameManager {
         System.out.println("Max: " + voteId);
         if (liar.equals(voteId)) {
             gm("votecom" + voteId);
-            ls.ocm.broadcast("¶óÀÌ¾î¸¦ Ã£¾Ò½À´Ï´Ù.");
+            ls.ocm.broadcast("ë¼ì´ì–´ë¥¼ ì°¾ì•˜ìŠµë‹ˆë‹¤.");
             ls.ocm.broadcast("Liar: " + liar);
-            ls.ocm.broadcast("¶óÀÌ¾î°¡ Á¦½Ã¾î¸¦ Ãß¸®ÁßÀÔ´Ï´Ù.");
+            ls.ocm.broadcast("ë¼ì´ì–´ê°€ ì œì‹œì–´ë¥¼ ì¶”ë¦¬ì¤‘ì…ë‹ˆë‹¤.");
             ls.sleepTh(10);
             String liarTopic;
             liarTopic = ls.liarTopic;
             System.out.println(liarTopic);
             if (liarTopic.equals(topic)) {
-                System.out.println("¶óÀÌ¾î½Â¸®");
-                ls.ocm.broadcast("¶óÀÌ¾î½Â¸®");
+                System.out.println("ë¼ì´ì–´ìŠ¹ë¦¬");
+                ls.ocm.broadcast("ë¼ì´ì–´ìŠ¹ë¦¬");
                 result("resultliarWin");
-            } else if (liarTopic.equals("10ÃÊÃÊ°ú")) {
-                ls.ocm.broadcast("¶óÀÌ¾î°¡ Á¦ÇÑ½Ã°£¿¡ Á¦½Ã¾î¸¦ ÀÔ·ÂÇÏÁö ¸øÇß½À´Ï´Ù.");
-                ls.ocm.broadcast("¶óÀÌ¾îÆĞ¹è");
+            } else if (liarTopic.equals("10ì´ˆì´ˆê³¼")) {
+                ls.ocm.broadcast("ë¼ì´ì–´ê°€ ì œí•œì‹œê°„ì— ì œì‹œì–´ë¥¼ ì…ë ¥í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
+                ls.ocm.broadcast("ë¼ì´ì–´íŒ¨ë°°");
                 result("resultliarLose");
 
             } else {
-                ls.ocm.broadcast("¶óÀÌ¾î°¡ Á¦½Ã¾î¸¦ ¸ÂÈ÷Áö ¸øÇŞ½À´Ï´Ù." +
-                        "\n¶óÀÌ¾î ÆĞ¹è");
-                ls.ocm.broadcast(" Á¦½Ã¾î : " + topic + "\n¶óÀÌ¾î°¡ ÀÔ·ÂÇÑ Á¦½Ã¾î : " + liarTopic);
+                ls.ocm.broadcast("ë¼ì´ì–´ê°€ ì œì‹œì–´ë¥¼ ë§íˆì§€ ëª»í–‡ìŠµë‹ˆë‹¤." +
+                        "\në¼ì´ì–´ íŒ¨ë°°");
+                ls.ocm.broadcast(" ì œì‹œì–´ : " + topic + "\në¼ì´ì–´ê°€ ì…ë ¥í•œ ì œì‹œì–´ : " + liarTopic);
                 result("resultliarLose");
             }
-            ls.liarTopic = "10ÃÊÃÊ°ú";
+            ls.liarTopic = "10ì´ˆì´ˆê³¼";
         } else {
-            System.out.println("¶óÀÌ¾î½Â¸®");
-            ls.ocm.broadcast("¶óÀÌ¾î¸¦ Ã£¾Æ³»Áö ¸øÇß½À´Ï´Ù.\n Liar: " + liar);
-            ls.ocm.broadcast("¶óÀÌ¾î½Â¸®");
+            System.out.println("ë¼ì´ì–´ìŠ¹ë¦¬");
+            ls.ocm.broadcast("ë¼ì´ì–´ë¥¼ ì°¾ì•„ë‚´ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.\n Liar: " + liar);
+            ls.ocm.broadcast("ë¼ì´ì–´ìŠ¹ë¦¬");
             result("resultliarWin");
         }
         //result();

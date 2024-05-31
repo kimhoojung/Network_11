@@ -13,12 +13,12 @@ class VoteDialog extends JDialog implements ActionListener,ListSelectionListener
     ClientUi clientUi;
     Client c;
     JPanel vPanel,p1;
-    RoundedButton vButton = new RoundedButton("ÅõÇ¥ÇÏ±â");
+    RoundedButton vButton = new RoundedButton("íˆ¬í‘œí•˜ê¸°");
     String result;
 
 
     VoteDialog(Client c) {
-        super(c.cui, "ÅõÇ¥ÇÏ±â", true);
+        super(c.cui, "íˆ¬í‘œí•˜ê¸°", true);
         this.clientUi = c.cui;
         this.c=c;
         this.frame = c.frame;
@@ -43,7 +43,7 @@ class VoteDialog extends JDialog implements ActionListener,ListSelectionListener
         voteList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         voteList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         voteList.addListSelectionListener(this);
-        vButton.setActionCommand("ÅõÇ¥ÇÏ±â");
+        vButton.setActionCommand("íˆ¬í‘œí•˜ê¸°");
         vButton.addActionListener(this);
 
         voteList.addMouseListener(new MouseAdapter() {
@@ -72,10 +72,10 @@ class VoteDialog extends JDialog implements ActionListener,ListSelectionListener
         int index = voteList.getSelectedIndex();
         result = c.idList.get(index);
     }
-void setUi(){
-    setSize(300, 190);
-    setLocationRelativeTo(null);
-    setVisible(true);
-    setBackground(Color.black);
-}
+    void setUi(){
+        setSize(300, 190);
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setBackground(Color.black);
+    }
 }

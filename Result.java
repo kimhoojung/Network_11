@@ -38,10 +38,10 @@ class Result extends JDialog implements ActionListener,Runnable {
     }
 
     void liarWin(){
-        Nliar = new ImagePanel("¶óÀÌ¾î¾Æ´Ô.gif");
+        Nliar = new ImagePanel("ìŠ¹ë¦¬5í˜¸.png");
         Nliar.setLayout(null);
         setContentPane(Nliar);
-        okBtn = new RoundedButton("È®ÀÎ");
+        okBtn = new RoundedButton("í™•ì¸");
         okBtn.setVisible(false);
         Nliar.add(okBtn);
         okBtn.setBounds(150, 110, 70, 30);
@@ -56,10 +56,10 @@ class Result extends JDialog implements ActionListener,Runnable {
 
     }
     void liarLose(){
-        Tliar = new ImagePanel("¶óÀÌ¾îÀâÀ½.gif");
+        Tliar = new ImagePanel("ë¯¼ìŠ¹.png");
         Tliar.setLayout(null);
         setContentPane(Tliar);
-        okBtn = new RoundedButton("È®ÀÎ");
+        okBtn = new RoundedButton("í™•ì¸");
         okBtn.setVisible(false);
         Tliar.add(okBtn);
         okBtn.setBounds(150, 110, 70, 30);
@@ -68,7 +68,7 @@ class Result extends JDialog implements ActionListener,Runnable {
         setUi();
     }
     void setUi() {
-        setTitle("°á°ú!");
+        setTitle("ê²°ê³¼!");
         setVisible(true);
         setSize(380, 185);
         setResizable(false);

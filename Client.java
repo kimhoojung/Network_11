@@ -75,13 +75,13 @@ class Client implements Runnable, ActionListener {
             os = s.getOutputStream();
             dis = new DataInputStream(is);
             dos = new DataOutputStream(os);
-            System.out.println("¿¬°á");
+            System.out.println("ì—°ê²°");
             String ent = dis.readUTF();
             System.out.println(ent);
             act();
             if (ent.equals("falsefull")) {
                 System.out.println("enterfalse");
-                JOptionPane.showMessageDialog(null, "ÇØ´ç ¼­¹öÀÇ ÀÎ¿øÀÌ °¡µæ Ã¡½À´Ï´Ù", "ÀÎ¿ø ÃÊ°ú", 0);
+                JOptionPane.showMessageDialog(null, "í•´ë‹¹ ì„œë²„ì˜ ì¸ì›ì´ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤", "ì¸ì› ì´ˆê³¼", 0);
                 dos.writeUTF("enterfalse");
                 dos.flush();
                 reLogin();
@@ -91,19 +91,19 @@ class Client implements Runnable, ActionListener {
                 System.out.println(ent);
                 if (ent.equals("falseid")) {
                     System.out.println("enterfalse");
-                    JOptionPane.showMessageDialog(null, "Áßº¹µÈ ¾ÆÀÌµğ°¡ ÀÖ½À´Ï´Ù.", "IDÁßº¹", 0);
+                    JOptionPane.showMessageDialog(null, "ì¤‘ë³µëœ ì•„ì´ë””ê°€ ìˆìŠµë‹ˆë‹¤.", "IDì¤‘ë³µ", 0);
                     dos.writeUTF("enterfalse");
                     dos.flush();
                     reLogin();
-                } else if (ent.equals("3ÃÊÈÄ")) {
+                } else if (ent.equals("3ì´ˆí›„")) {
                     System.out.println("enterfalse");
-                    JOptionPane.showMessageDialog(null, "ÇØ´ç ¼­¹öÀÇ °ÔÀÓÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù.", "°ÔÀÓ ½ÃÀÛ", 0);
+                    JOptionPane.showMessageDialog(null, "í•´ë‹¹ ì„œë²„ì˜ ê²Œì„ì´ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.", "ê²Œì„ ì‹œì‘", 0);
                     dos.writeUTF("enterfalse");
                     dos.flush();
                     reLogin();
 
                 } else {
-                    System.out.println("³´ Æú½º");
+                    System.out.println("ë‚« í´ìŠ¤");
                     dos.flush();
                     listenTh = new Thread(this);
                     listenTh.start();
@@ -112,7 +112,7 @@ class Client implements Runnable, ActionListener {
             }
         } catch (IOException ie) {
             System.out.println("Client ie: " + ie);
-            JOptionPane.showMessageDialog(null, "¾ÆÀÌÇÇ ¶Ç´Â Æ÷Æ®°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.", "¿¬°á ¿À·ù", 0);
+            JOptionPane.showMessageDialog(null, "ì•„ì´í”¼ ë˜ëŠ” í¬íŠ¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.", "ì—°ê²° ì˜¤ë¥˜", 0);
             reLogin();
         }
     }
@@ -120,16 +120,16 @@ class Client implements Runnable, ActionListener {
 
     String protocol() throws IOException {
         if (lsnMsg.startsWith(id + ">>") & !lsnMsg.startsWith(id + " ")) {
-            lsnMsg = lsnMsg.replaceFirst(id, "³ª ");
+            lsnMsg = lsnMsg.replaceFirst(id, "ë‚˜ ");
             return lsnMsg;
-        } else if (lsnMsg.startsWith(id + "´ÔÀÌ °­Åğ")) {
+        } else if (lsnMsg.startsWith(id + "ë‹˜ì´ ê°•í‡´")) {
             s.close();
-            JOptionPane.showMessageDialog(null, "°ü¸®ÀÚ¿¡ ÀÇÇØ °­Åğ´çÇÏ¼Ì½À´Ï´Ù.", "°­Åğ", 0);
+            JOptionPane.showMessageDialog(null, "ê´€ë¦¬ìì— ì˜í•´ ê°•í‡´ë‹¹í•˜ì…¨ìŠµë‹ˆë‹¤.", "ê°•í‡´", 0);
             cui.dispose();
             ui.reopen();
             return "exit";
         } else if (lsnMsg.startsWith("gm")) {
-            System.out.println(lsnMsg + "gm¸Ş¼¼Áö");
+            System.out.println(lsnMsg + "gmë©”ì„¸ì§€");
             lsnMsg = lsnMsg.substring(2);
             System.out.println(lsnMsg);
             fromGm(lsnMsg);
@@ -150,23 +150,23 @@ class Client implements Runnable, ActionListener {
     void fromGm(String lsnMsg) {
 
         if (lsnMsg.startsWith("liar:")) {
-            cui.setTitle(id + "(À¸)·Î °ÔÀÓÁß..(ip: " + ip + ", port: " + port + ")");
+            cui.setTitle(id + "(ìœ¼)ë¡œ ê²Œì„ì¤‘..(ip: " + ip + ", port: " + port + ")");
             if (lsnMsg.substring(5).equals(id)) {
-                cui.topicTf.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
-                cui.topicTf.setText("´ç½ÅÀº ¶óÀÌ¾îÀÔ´Ï´Ù");
+                cui.topicTf.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 16));
+                cui.topicTf.setText("ë‹¹ì‹ ì€ ë¼ì´ì–´ì…ë‹ˆë‹¤");
             } else {
             }
         } else if (lsnMsg.startsWith("topic:")) {
-            if (cui.topicTf.getText().equals("´ç½ÅÀº ¶óÀÌ¾îÀÔ´Ï´Ù")) {
+            if (cui.topicTf.getText().equals("ë‹¹ì‹ ì€ ë¼ì´ì–´ì…ë‹ˆë‹¤")) {
             } else {
                 cui.topicTf.setText(lsnMsg.substring(6));
             }
-        } else if (lsnMsg.startsWith("Ã¤ÆÃ¶ô")) {
+        } else if (lsnMsg.startsWith("ì±„íŒ…ë½")) {
             cui.chatTf.setEnabled(false);
-        } else if (lsnMsg.startsWith("Ã¤ÆÃ¾ğ¶ô")) {
+        } else if (lsnMsg.startsWith("ì±„íŒ…ì–¸ë½")) {
             if (lsnMsg.substring(4).equals(id)) {
                 printTimer(cui.timeTf, 10);
-                cui.ta.append("»ó´Ü Á¦ÇÑ½Ã°£¾È¿¡ Á¦½Ã¾î¿¡ ´ëÇØ ¼³¸íÇØÁÖ¼¼¿ä.\n");
+                cui.ta.append("ìƒë‹¨ ì œí•œì‹œê°„ì•ˆì— ì œì‹œì–´ì— ëŒ€í•´ ì„¤ëª…í•´ì£¼ì„¸ìš”.\n");
                 cui.chatTf.setEnabled(true);
                 chatTimeTh = new Thread(this);
                 chatTimeTh.start();
@@ -176,14 +176,14 @@ class Client implements Runnable, ActionListener {
         } else if (lsnMsg.startsWith("votecom")) {
             if (lsnMsg.substring(7).equals(id)) {
                 printTimer(cui.timeTf, 10);
-                cui.ta.append("10ÃÊ¾È¿¡ Á¦½Ã¾î¸¦ Ãß¸®ÇÏ¿© ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+                cui.ta.append("10ì´ˆì•ˆì— ì œì‹œì–´ë¥¼ ì¶”ë¦¬í•˜ì—¬ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
                 cui.chatTf.setEnabled(true);
                 chatTimeTh = new Thread(this);
                 chatTimeTh.start();
                 cui.chatTf.removeActionListener(enter2);
                 cui.chatTf.addActionListener(enter3);
             }
-        } else if (lsnMsg.startsWith("¿Ã¾ğ¶ô")) {
+        } else if (lsnMsg.startsWith("ì˜¬ì–¸ë½")) {
             cui.chatTf.setEnabled(true);
             cui.chatTf.setText("");
             cui.topicTf.setText("");
@@ -192,11 +192,11 @@ class Client implements Runnable, ActionListener {
             cui.chatTf.removeActionListener(enter3);
             cui.chatTf.addActionListener(enter);
             idList.removeAllElements();
-            cui.setTitle(id + "(À¸)·Î Ã¤ÆÃÁß..(ip: " + ip + ", port: " + port + ")");
+            cui.setTitle(id + "(ìœ¼)ë¡œ ì±„íŒ…ì¤‘..(ip: " + ip + ", port: " + port + ")");
         } else if (lsnMsg.startsWith("list")) {
             idList.add(lsnMsg.substring(4));
         } else if (lsnMsg.startsWith("vote")) {
-            System.out.println("voteÀÔÀå");
+            System.out.println("voteì…ì¥");
             String vote = new VoteDialog(this).getResult();
             System.out.println(vote);
             speak("cVote" + vote);
@@ -258,7 +258,7 @@ class Client implements Runnable, ActionListener {
                         closeAll();
                         break;
                     } else {
-                            cui.ta.append(msg + "\n");
+                        cui.ta.append(msg + "\n");
                         cui.sp.getVerticalScrollBar().setValue(cui.sp.getVerticalScrollBar().getMaximum());
                     }
                 }
@@ -282,7 +282,7 @@ class Client implements Runnable, ActionListener {
             return protocol();
         } catch (IOException ie) {
             System.out.println(ie);
-            JOptionPane.showMessageDialog(null, "¼­¹ö¿Í ¿¬°áÀÌ ²÷°å½À´Ï´Ù.");
+            JOptionPane.showMessageDialog(null, "ì„œë²„ì™€ ì—°ê²°ì´ ëŠê²¼ìŠµë‹ˆë‹¤.");
             return "exit";
         }
 
@@ -306,7 +306,7 @@ class Client implements Runnable, ActionListener {
                     tf.setText("");
                     timer.cancel();
                 }
-                tf.setText(leftSeconds + "ÃÊ");
+                tf.setText(leftSeconds + "ì´ˆ");
 
             }
 

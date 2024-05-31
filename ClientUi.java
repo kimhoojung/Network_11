@@ -7,10 +7,10 @@ import java.util.Vector;
 class ClientUi extends JFrame {
     LoginUi ui;
     String id, ip, port;
-    ////////////////////////////////////// ≈¨∂Û¿Øæ∆¿Ã ∏‚πˆ°È
+    ////////////////////////////////////// ÌÅ¥ÎùºÏú†ÏïÑÏù¥ Î©§Î≤Ñ‚Üì
     JTextArea ta = new JTextArea() {
         public void paintComponent(final Graphics g) {
-            ImageIcon imageIcon = new ImageIcon("taBack.png");
+            ImageIcon imageIcon = new ImageIcon("123.jpg");
             Rectangle rect = getVisibleRect();
             g.drawImage(imageIcon.getImage(), rect.x, rect.y, rect.width, rect.height, null);
             setOpaque(false);
@@ -22,10 +22,10 @@ class ClientUi extends JFrame {
     JScrollPane sp;
     JPanel tfP, taP, northP, endP, chatP;
     JPanel p1, p2;
-    RoundedButton endBtn = new RoundedButton("º≠πˆ ≥™∞°±‚");
+    RoundedButton endBtn = new RoundedButton("ÏÑúÎ≤Ñ ÎÇòÍ∞ÄÍ∏∞");
     Container cp;
-    Font f = new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 20);
-    Font f2 = new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN, 20);
+    Font f = new Font("ÎßëÏùÄ Í≥†Îîï", Font.BOLD, 20);
+    Font f2 = new Font("ÎßëÏùÄ Í≥†Îîï", Font.PLAIN, 20);
     GridBagLayout g = new GridBagLayout();
     GridBagConstraints gc, gc2;
     Color c1, c2;
@@ -37,10 +37,10 @@ class ClientUi extends JFrame {
             this.id = ui.id;
             this.ip = ui.ip;
             this.port = String.valueOf(ui.port);
-            System.out.println("Cui¿«: " + ip + port + id);
+            System.out.println("CuiÏùò: " + ip + port + id);
             init();
             setUi();
-            new Client(this);                               //æ◊º«∏ÆΩ∫≥  ª¿‘
+            new Client(this);                               //Ïï°ÏÖòÎ¶¨Ïä§ÎÑà ÏÇΩÏûÖ
         } catch (Exception e) {
 
         }
@@ -49,7 +49,7 @@ class ClientUi extends JFrame {
 
     void setUi() {
         setVisible(true);
-        setTitle(id + "(¿∏)∑Œ √§∆√¡ﬂ..(ip: " + ip + ", port: " + port + ")");
+        setTitle(id + "(Ïúº)Î°ú Ï±ÑÌåÖÏ§ë..(ip: " + ip + ", port: " + port + ")");
         setSize(900, 750);
         setResizable(false);
         setLocationRelativeTo(null);
@@ -84,7 +84,7 @@ class ClientUi extends JFrame {
         northP.add(tfP, BorderLayout.SOUTH);
         cp.add(northP, BorderLayout.NORTH);                                      //northP
 
-        chatP = new ImagePanel("pBack.png");
+        chatP = new ImagePanel("123.jpg");
         chatTf = new JTextField(30);
         chatTf.setFont(f2);
         chatTf.setBorder(javax.swing.BorderFactory.createEmptyBorder());
@@ -95,28 +95,28 @@ class ClientUi extends JFrame {
 
 
         p1 = new JPanel(new BorderLayout());
-        JLabel lb =new JLabel(new ImageIcon(getClass().getResource("p1.jpg")));
-        //ªÁ¿ÃµÂ∆–≥Œ
+        JLabel lb =new JLabel(new ImageIcon(getClass().getResource("asd.png")));
+        //ÏÇ¨Ïù¥ÎìúÌå®ÎÑê
         p1.add(lb);
         p1.setPreferredSize(new Dimension(150, 600));
         p2 = new JPanel(new BorderLayout());
         p2.setPreferredSize(new Dimension(150, 600));
-        lb =new JLabel(new ImageIcon(getClass().getResource("p2.jpg")));
+        lb =new JLabel(new ImageIcon(getClass().getResource("asd.png")));
         p2.add(lb);
-        //ªÁ¿ÃµÂ∆–≥Œ ≥°
+        //ÏÇ¨Ïù¥ÎìúÌå®ÎÑê ÎÅù
 
         taP = new JPanel(new BorderLayout());
         taP.add(ta, BorderLayout.CENTER);
         sp = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         //cp
         sp.getVerticalScrollBar().setValue(sp.getVerticalScrollBar().getMaximum());
-        taP.add(sp);                                                                            //ta∆–≥Œ
+        taP.add(sp);                                                                            //taÌå®ÎÑê
 
 
         ta.setLineWrap(true);
         ta.setEnabled(false);
         ta.setDisabledTextColor(new Color(200,150,100));
-        ta.setFont(new Font("∏º¿∫ ∞ÌµÒ",Font.BOLD,20));
+        ta.setFont(new Font("ÎßëÏùÄ Í≥†Îîï",Font.BOLD,20));
         cp.add(taP, BorderLayout.CENTER);
         cp.add(p1, BorderLayout.WEST);
         cp.add(p2, BorderLayout.EAST);
@@ -128,7 +128,7 @@ class PanelUi {
     JPanel panel;
     JLabel imgLb;
     JLabel idLb;
-    Font f = new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 20);
+    Font f = new Font("ÎßëÏùÄ Í≥†Îîï", Font.BOLD, 20);
     ClientUi cui;
 
     PanelUi(ClientUi cui) {
@@ -137,7 +137,7 @@ class PanelUi {
             panel = new JPanel(new BorderLayout());
             imgLb = new JLabel(new ImageIcon("buddy.jpg"));
             imgLb.setName(String.valueOf(i) + "imgLb");
-            idLb = new JLabel("æ∆¿Ãµ");
+            idLb = new JLabel("ÏïÑÏù¥Îîî");
             idLb.setName(String.valueOf(i) + "idLb");
             idLb.setFont(f);
             idLb.setHorizontalAlignment(0);

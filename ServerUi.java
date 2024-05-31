@@ -10,7 +10,7 @@ class ServerUi extends JFrame implements ActionListener {
     String port;
     LoginUi ui;
     Socket s;
-    /////////////////////////////////////////////¼­¹ö ui¸â¹ö
+    /////////////////////////////////////////////ì„œë²„ uië©¤ë²„
     JTextArea ta = new JTextArea();
     JTextField  chatTf;
     JScrollPane sp;
@@ -31,7 +31,7 @@ class ServerUi extends JFrame implements ActionListener {
         cp = getContentPane();
         cp.setLayout(new BorderLayout());
         endP = new JPanel(new BorderLayout());
-        endBtn = new JButton("Á¾·á");
+        endBtn = new JButton("ì¢…ë£Œ");
         endP.add(endBtn, BorderLayout.WEST);
         cp.add(endP, BorderLayout.NORTH);                                                                //endP
 
@@ -45,10 +45,10 @@ class ServerUi extends JFrame implements ActionListener {
 
         chatP = new JPanel(new BorderLayout());
         btnP = new JPanel(new GridLayout(1, 4));
-        startBtn = new JButton("°ÔÀÓ ½ÃÀÛ!");
-        banBtn = new JButton("°­Åğ");
+        startBtn = new JButton("ê²Œì„ ì‹œì‘!");
+        banBtn = new JButton("ê°•í‡´");
         idBox = new JComboBox();
-        clearBtn = new JButton("Ã¤ÆÃ Áö¿ì±â");
+        clearBtn = new JButton("ì±„íŒ… ì§€ìš°ê¸°");
         btnP.add(startBtn);
         btnP.add(banBtn);
         btnP.add(idBox);
@@ -58,7 +58,7 @@ class ServerUi extends JFrame implements ActionListener {
         chatP.add(chatTf, BorderLayout.CENTER);
         chatP.add(btnP, BorderLayout.SOUTH);
         cp.add(chatP, BorderLayout.SOUTH);                                                            //chatP
-        ta.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
+        ta.setFont(new Font("ë§‘ì€ ê³ ë”•",Font.BOLD,20));
         ta.setDisabledTextColor(Color.black);
         setUi();
         act();
@@ -66,7 +66,7 @@ class ServerUi extends JFrame implements ActionListener {
 
     void setUi() {
         setVisible(true);
-        setTitle( port + "¿¡¼­ Ã¤ÆÃÁß..");
+        setTitle( port + "ì—ì„œ ì±„íŒ…ì¤‘..");
         setSize(700, 450);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,14 +79,14 @@ class ServerUi extends JFrame implements ActionListener {
             ta.append(text + "\n");
 
 
-            //ÇÁ·Î±×·¥ Á¾·á
+            //í”„ë¡œê·¸ë¨ ì¢…ë£Œ
             system.exit(0);
         else{
-                //ÀÔ·ÂµÈ ¸Ş¼¼Áö°¡ "/exit"°¡ ¾Æ´Ò °æ¿ì( Àü¼ÛÇÒ ¸Ş¼¼ÁöÀÎ °æ¿ì)
-                //Å¬¶óÀÌ¾ğÆ®¿¡°Ô ¸Ş¼¼Áö Àü¼Û
+                //ì…ë ¥ëœ ë©”ì„¸ì§€ê°€ "/exit"ê°€ ì•„ë‹ ê²½ìš°( ì „ì†¡í•  ë©”ì„¸ì§€ì¸ ê²½ìš°)
+                //í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë©”ì„¸ì§€ ì „ì†¡
                 dos.writeutf(text);
 
-                //ÃÊ±âÈ­ ¹× Ä¿¼­¿äÃ»
+                //ì´ˆê¸°í™” ë° ì»¤ì„œìš”ì²­
                 chattf.settext("");
                 chattf.requestfocus();
             }
